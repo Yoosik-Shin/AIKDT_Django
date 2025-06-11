@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ypu9(ly)(%54u_k%4q4xf35o(^rq9ennl#zt8ugy7@pf46b)0='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # 기본값 True, 에러페이지 만들어서 false로 바꿈
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  # 모든 호스트 허용
 
 
 # Application definition
@@ -131,3 +131,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser' # 커스텀 유저 모델 설정
+
+
+# 에러 페이지 설정
+handler403 = 'post.errors.custom_permission_denied_view'
+handler404 = 'post.errors.custom_page_not_found_view'
