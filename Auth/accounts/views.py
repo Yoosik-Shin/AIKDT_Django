@@ -11,7 +11,7 @@ def signup(request):
       if form.is_valid():
         # 회원가입 성공
         form.save()
-        return redirect('login')
+        return redirect('/')
   else:
     # 회원가입 실패
     form = UserCreationForm()
