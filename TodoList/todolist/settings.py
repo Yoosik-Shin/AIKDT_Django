@@ -73,12 +73,22 @@ WSGI_APPLICATION = 'todolist.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# mysite/settings.py
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  # MySQL 백엔드 사용
+        'NAME': 'aloha',                       # DB 이름
+        'USER': 'aloha',                       # DB 사용자
+        'PASSWORD': '123456',                  # 비밀번호
+        'HOST': 'localhost',                   # 또는 IP 주소
+        'PORT': '3306',                        # 기본 포트
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
+
 
 
 # Password validation
