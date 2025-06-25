@@ -98,8 +98,15 @@
                       <button type="submit" class="btn btn-outline-primary">진행</button>
                     </form>
                   </td>
-                  <td>
-                    {{ todo.title }}
+                  <td class="d-flex justify-content-center gap-5">
+                    <form action="./update" method="post" class="gap-3">
+                      {% csrf_token %}
+                      <input type="hidden" name="no" value="{{ todo.no }}" class="p-3">
+                      <input type="text" name="title" value="{{ todo.title }}">
+                      <button class="btn btn-info">
+                        <i class="bi bi-recycle"></i>
+                      </button>
+                    </form>
                   </td>
                   <td>
                     <form action="./delete" method="post">

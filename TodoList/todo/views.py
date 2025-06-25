@@ -95,3 +95,20 @@ def wait(request):
     except Todo.DoesNotExist:
       print('완료할 할 일이 없습니다.')
     return HttpResponseRedirect(reverse('todo'))
+
+def update(request):
+    print('제목 수정 요청 됨')
+
+    no = request.POST['no']
+    title = request.POST['title']
+    print(f'no: {no}, title: {title}')
+
+    try:
+        todo = Todo.objects.get(no=no)  # 해당 번호의 할 일 가져오기
+        todo.title = title              # 제목 수정
+        todo.save()                     # DB에 저장
+        print('수정 완료')
+    except Todo.DoesNotExist:
+        print('수정할 할 일이 없습니다.')
+
+    return HttpResponseRedirect(reverse('todo'))  # 목록 페이지로 리다이렉트

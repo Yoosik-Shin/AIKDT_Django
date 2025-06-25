@@ -9,4 +9,6 @@ urlpatterns = [
   path('ing', views.ing, name='ing'),
   path('done', views.done, name='done'),
   path('wait', views.wait, name='wait'),
+  path('update', views.update, name='update'),
+
 ]
